@@ -8,7 +8,7 @@ source("common.R")
 
 \index{function operators}
 
-En este capítulo, aprenderá acerca de los operadores de funciones. Un **operador de función** es una función que toma una (o más) funciones como entrada y devuelve una función como salida. El siguiente código muestra un operador de función simple, `chatty()`. Envuelve una función, creando una nueva función que imprime su primer argumento. Puede crear una función como esta porque le da una ventana para ver cómo funcionan los funcionales, como `map_int()`.
+En este capítulo, aprenderá acerca de los operadores de funciones. Un **operador de función** es una función que toma una (o más) funciones como entrada y devuelve una función como salida. El siguiente código muestra un operador de función simple, `chatty()`. Envuelve una función, creando una nueva función que imprime su primer argumento. Puede crear una función como esta porque le da una ventana para ver cómo funcionan las funciones, como `map_int()`.
 
 ```{r, eval = TRUE}
 chatty <- function(f) {
@@ -129,7 +129,7 @@ x[!ok]
 out$result[ok]
 ```
 
-Puedes usar esta misma técnica en muchas situaciones diferentes. Por ejemplo, imagine que está ajustando un modelo lineal generalizado (GLM) a una lista de marcos de datos. Los GLM a veces pueden fallar debido a problemas de optimización, pero aún desea poder intentar ajustar todos los modelos y luego mirar hacia atrás a los que fallaron:
+Puedes usar esta misma técnica en muchas situaciones diferentes. Por ejemplo, imagine que está ajustando un modelo lineal generalizado (GLM) a una lista de data frames. Los GLM a veces pueden fallar debido a problemas de optimización, pero aún desea poder intentar ajustar todos los modelos y luego mirar hacia atrás a los que fallaron:
 
 ```{r, eval = FALSE}
 fit_model <- function(df) {
@@ -196,7 +196,7 @@ system.time(fib(23))
 system.time(fib(24))
 ```
 
-Memoizar `fib()` hace que la implementación sea mucho más rápida porque cada valor se calcula solo una vez:
+Memorizar `fib()` hace que la implementación sea mucho más rápida porque cada valor se calcula solo una vez:
 
 ```{r}
 fib2 <- memoise::memoise(function(n) {
@@ -214,7 +214,7 @@ system.time(fib2(24))
 
 Este es un ejemplo de **programación dinámica**, donde un problema complejo se puede dividir en muchos subproblemas superpuestos, y recordar los resultados de un subproblema mejora considerablemente el rendimiento.
 
-Piense cuidadosamente antes de memorizar una función. Si la función no es **pura**, es decir, la salida no depende solo de la entrada, obtendrá resultados engañosos y confusos. Creé un error sutil en las herramientas de desarrollo porque memoricé los resultados de `available.pachages()`, que es bastante lento porque tiene que descargar un archivo grande de CRAN. Los paquetes disponibles no cambian con tanta frecuencia, pero si tiene un proceso R que se ha estado ejecutando durante algunos días, los cambios pueden volverse importantes y, dado que el problema solo surgió en los procesos R de ejecución prolongada, el error fue muy doloroso para encontrar.
+Piense cuidadosamente antes de memorizar una función. Si la función no es **pura**, es decir, la salida no depende solo de la entrada, obtendrá resultados engañosos y confusos. Creé un error sutil en las herramientas de desarrollo porque memoricé los resultados de `available.packages()`, que es bastante lento porque tiene que descargar un archivo grande de CRAN. Los paquetes disponibles no cambian con tanta frecuencia, pero si tiene un proceso R que se ha estado ejecutando durante algunos días, los cambios pueden volverse importantes y, dado que el problema solo surgió en los procesos R de ejecución prolongada, el error fue muy doloroso para encontrar.
 
 ### Ejercicios
 

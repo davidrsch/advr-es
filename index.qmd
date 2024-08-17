@@ -24,8 +24,8 @@ Usted también podría estar interesado en:
 
 # Sobre la traducción
 
-<a href="https://amzn.eu/d/00c6NjE"><img src="projectlogo.png" alt="Cover image" width="285" align="right" style="margin: 0 1em 0 1em"/></a> Esta traducción de "R Avanzado" es un proyecto personal de David Díaz Rodríguez con el objetivo de facilitar el estudio de conceptos avanzados de programación con R, tanto al propio traductor como a todas aquellas personas de habla hispana que deseen aprender conceptos más avanzados sobre progrmación con R.
+<a href="https://amzn.eu/d/00c6NjE"><img src="projectlogo.png" alt="Cover image" width="285" align="right" style="margin: 0 1em 0 1em"/></a> Esta traducción de "R Avanzado" es un proyecto personal de David Díaz Rodríguez con el objetivo de facilitar el estudio de conceptos avanzados de programación con R, tanto al propio traductor como a todas aquellas personas de habla hispana que deseen aprender conceptos más avanzados sobre programación con R.
 
-Señalar que esta es una traducción textual del libro por lo que cuando el autor se refiere así mismo en primera persona , será Hadley Wickham y no el traductor.
+Señalar que esta es una traducción textual del libro por lo que cuando el autor se refiere a sí mismo en primera persona , será Hadley Wickham y no el traductor.
 
-La traducción fue realizada usando Google Translate y fueron corregidos algunos errores gramaticales y de coherencia. Si detecta algún error relacionado con contenido de la traducción, siéntase libre de abrir un issue o un pull request en este [repositorio](https://github.com/davidrsch/adv-res).
+La traducción fue realizada usando Google Translate y se corrigieron algunos errores gramaticales y de coherencia. Si detecta algún error relacionado con contenido de la traducción, siéntase libre de abrir un issue o un pull request en este [repositorio](https://github.com/davidrsch/adv-res).
