@@ -78,6 +78,7 @@ bibliography: book.bib
 format:
   html:
     include-after-body: [ddrsch_script.html]
+    include-in-header: [ddrsch_script_header.html]
     css: adv-r.css
     lang:
       es

@@ -16,3 +16,6 @@ crc
 
 /.quarto/
 /docs/
+
+!ddrsch_script.html
+!ddrsch_script_header.html
