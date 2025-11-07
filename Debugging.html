@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -89,14 +89,15 @@ div.csl-indent {
 <link href="./projectlogo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87efc9f0321ca4df940afa6b8506b50b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a4f308e4280a6709c1859ed77e495bf3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -111,7 +112,7 @@ div.csl-indent {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -152,7 +153,9 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Avanzado</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -165,7 +168,7 @@ div.csl-indent {
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/adv-res">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/advr-es">
             Traducción
             </a>
           </li>
@@ -542,7 +545,7 @@ div.csl-indent {
 <p>Una vez que haya hecho que el error sea repetible, el siguiente paso es averiguar de dónde viene. La herramienta más importante para esta parte del proceso es <code>traceback()</code>, que le muestra la secuencia de llamadas (también conocida como pila de llamadas, <a href="Environments.html#sec-call-stack" class="quarto-xref"><span>Sección 7.5</span></a>) que conducen al error.</p>
 <p>He aquí un ejemplo sencillo: puedes ver que <code>f()</code> llama a <code>g()</code> llama a <code>h()</code> llama a <code>i()</code>, que comprueba si su argumento es numérico:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(a) <span class="fu">g</span>(a)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(a) <span class="fu">g</span>(a)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(b) <span class="fu">h</span>(b)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="cf">function</span>(c) <span class="fu">i</span>(c)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="cf">function</span>(d) {</span>
@@ -550,7 +553,7 @@ div.csl-indent {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"`d` must be numeric"</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  d <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Cuando ejecutamos el código <code>f("a")</code> en RStudio vemos:</p>
 <div class="cell" data-layout-align="center">
@@ -574,12 +577,12 @@ div.csl-indent {
 </div>
 <p>Si no está usando RStudio, puede usar <code>traceback()</code> para obtener la misma información (sin un formato bonito):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">traceback</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">traceback</span>()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5: stop("`d` must be numeric", call. = FALSE) at debugging.R#6</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: i(c) at debugging.R#3</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3: h(b) at debugging.R#2</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: g(a) at debugging.R#1</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: f("a")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: f("a")</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>NB: Usted lee la salida <code>traceback()</code> de abajo hacia arriba: la llamada inicial es <code>f()</code>, que llama <code>g()</code>, luego <code>h()</code>, luego <code>i()</code>, que activa el error. Si está llamando al código que ’fuente () ’d en R, el rastreo también mostrará la ubicación de la función, en la forma <code>nombredearchivo.r# númerodelínea</code>. Estos se pueden hacer clic en RStudio y lo llevarán a la línea de código correspondiente en el editor.</p>
 <section id="sec-debug-lazy" class="level3" data-number="22.3.1">
@@ -587,27 +590,27 @@ div.csl-indent {
 <p></p>
 <p>Un inconveniente de <code>traceback()</code> es que siempre linealiza el árbol de llamadas, lo que puede ser confuso si hay mucha evaluación perezosa involucrada (<a href="Environments.html#sec-lazy-call-stack" class="quarto-xref"><span>Sección 7.5.2</span></a>). Por ejemplo, tome el siguiente ejemplo donde ocurre el error al evaluar el primer argumento de <code>f()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="cf">function</span>() <span class="fu">k</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="cf">function</span>() <span class="fu">k</span>()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="cf">function</span>() <span class="fu">stop</span>(<span class="st">"Oops!"</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fu">j</span>())</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Oops!</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Oops!</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">traceback</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">traceback</span>()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7: stop("Oops!") at #1</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6: k() at #1</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5: j() at debugging.R#1</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: i(c) at debugging.R#3</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3: h(b) at debugging.R#2</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2: g(a) at debugging.R#1</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: f(j())</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1: f(j())</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Puede usar <code>rlang::with_abort()</code> y <code>rlang::last_trace()</code> para ver el árbol de llamadas. Aquí, creo que hace que sea mucho más fácil ver el origen del problema. Mire la última rama del árbol de llamadas para ver que el error proviene de <code>j()</code> llamando a <code>k()</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rlang<span class="sc">::</span><span class="fu">with_abort</span>(<span class="fu">f</span>(<span class="fu">j</span>()))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rlang<span class="sc">::</span><span class="fu">with_abort</span>(<span class="fu">f</span>(<span class="fu">j</span>()))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: 'with_abort' is not an exported object from 'namespace:rlang'</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rlang<span class="sc">::</span><span class="fu">last_trace</span>()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Can't show last error because no error was recorded yet</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Can't show last error because no error was recorded yet</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>NB: <code>rlang::last_trace()</code> se ordena de forma opuesta a <code>traceback()</code>. Volveremos a ese tema en la <a href="#sec-call-stack-ordering" class="quarto-xref"><span>Sección 22.4.2.4</span></a>.</p>
 </section>
@@ -618,20 +621,20 @@ div.csl-indent {
 <p>A veces, la ubicación precisa del error es suficiente para permitirle localizarlo y solucionarlo. Sin embargo, con frecuencia necesita más información, y la forma más fácil de obtenerla es con el depurador interactivo que le permite pausar la ejecución de una función y explorar su estado de forma interactiva.</p>
 <p>Si está utilizando RStudio, la forma más fácil de ingresar al depurador interactivo es a través de la herramienta “Reejecutar con depuración” de RStudio. Esto vuelve a ejecutar el comando que creó el error, deteniendo la ejecución donde ocurrió el error. De lo contrario, puede insertar una llamada a <code>browser()</code> donde desea hacer una pausa y volver a ejecutar la función. Por ejemplo, podríamos insertar una llamada <code>browser()</code> en <code>g()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(b) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(b) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">browser</span>()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>(b)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>browser()</code> es solo una llamada de función regular, lo que significa que puede ejecutarla condicionalmente envolviéndola en una declaración <code>if</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(b) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(b) {</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (b <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">browser</span>()</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>(b)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>En cualquier caso, terminará en un entorno interactivo <em>dentro</em> de la función donde puede ejecutar código R arbitrario para explorar el estado actual. Sabrá cuándo está en el depurador interactivo porque recibe un aviso especial:</p>
 <pre><code>Browse[1]&gt; </code></pre>
@@ -683,7 +686,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <p> </p>
 <p>Otra forma de activar <code>browser()</code> es usar <code>options(error = recover)</code>. Ahora, cuando reciba un error, obtendrá un mensaje interactivo que muestra el rastreo y le brinda la capacidad de depurar de forma interactiva dentro de cualquiera de los marcos:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> recover)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> recover)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="st">"x"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: `d` must be numeric</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -694,7 +697,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3: debugging.R#2: h(b)</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4: debugging.R#3: i(c)</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Selection:</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Selection:</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Puede volver al manejo de errores predeterminado con <code>options(error = NULL)</code>.</p>
 </section>
@@ -790,7 +793,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <h3 data-number="22.5.1" class="anchored" data-anchor-id="dump.frames"><span class="header-section-number">22.5.1</span> <code>dump.frames()</code></h3>
 <p><code>dump.frames()</code> es el equivalente a <code>recover()</code> para código no interactivo; guarda un archivo <code>last.dump.rda</code> en el directorio de trabajo. Más tarde, en una sesión interactiva, puede <code>load("last.dump.rda"); debugger()</code> para ingresar a un depurador interactivo con la misma interfaz que <code>recover()</code>. Esto le permite “engañar”, depurando de forma interactiva el código que se ejecutó de forma no interactiva.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En proceso por lotes R ----</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En proceso por lotes R ----</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dump_and_quit <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Guardar información de depuración en un archivo last.dump.rda</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dump.frames</span>(<span class="at">to.file =</span> <span class="cn">TRUE</span>)</span>
@@ -801,7 +804,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># En una sesión interactiva posterior ----</span></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"last.dump.rda"</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">debugger</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">debugger</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="sec-print-debugging" class="level3" data-number="22.5.2">
@@ -809,7 +812,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <p></p>
 <p>Si <code>dump.frames()</code> no ayuda, una buena alternativa es <strong>imprimir la depuración</strong>, donde inserta numerosas instrucciones de impresión para ubicar con precisión el problema y ver los valores de las variables importantes. La depuración de impresión es lenta y primitiva, pero siempre funciona, por lo que es particularmente útil si no puede obtener un buen seguimiento. Comience insertando marcadores de grano grueso y luego hágalos progresivamente más finos a medida que determina exactamente dónde está el problema.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(a) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(a) {</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"f()</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">g</span>(a)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -828,7 +831,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; g()</span></span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; b = 10 </span></span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; i()</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Imprimir la depuración es particularmente útil para el código compilado porque no es raro que el compilador modifique su código hasta el punto de que no pueda descubrir la raíz del problema, incluso cuando se encuentra dentro de un depurador interactivo.</p>
 </section>
@@ -839,19 +842,19 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <p>La depuración del código dentro de los archivos RMarkdown requiere algunas herramientas especiales. Primero, si está tejiendo el archivo usando RStudio, cambie a llamar <code>rmarkdown::render("path/to/file.Rmd")</code> en su lugar. Esto ejecuta el código en la sesión actual, lo que facilita la depuración. Si hacer esto hace que el problema desaparezca, deberá descubrir qué hace que los entornos sean diferentes.</p>
 <p>Si el problema persiste, deberá usar sus habilidades de depuración interactiva. Independientemente del método que utilice, necesitará un paso adicional: en el controlador de errores, deberá llamar a <code>sink()</code>. Esto elimina el sumidero predeterminado que usa knitr para capturar todos los resultados y garantiza que pueda ver los resultados en la consola. Por ejemplo, para usar <code>recover()</code> con RMarkdown, colocaría el siguiente código en su bloque de configuración:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> <span class="cf">function</span>() {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> <span class="cf">function</span>() {</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sink</span>()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recover</span>()</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Esto generará una advertencia de “no hay disipador para eliminar” cuando se complete knitr; puede ignorar esta advertencia con seguridad.</p>
 <p>Si simplemente quiere un rastreo, la opción más fácil es usar <code>rlang::trace_back()</code>, aprovechando la opción <code>rlang_trace_top_env</code>. Esto garantiza que solo vea el rastreo de su código, en lugar de todas las funciones llamadas por RMarkdown y knitr.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">rlang_trace_top_env =</span> rlang<span class="sc">::</span><span class="fu">current_env</span>())</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">rlang_trace_top_env =</span> rlang<span class="sc">::</span><span class="fu">current_env</span>())</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> <span class="cf">function</span>() {</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sink</span>()</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(rlang<span class="sc">::</span><span class="fu">trace_back</span>(<span class="at">bottom =</span> <span class="fu">sys.frame</span>(<span class="sc">-</span><span class="dv">1</span>)), <span class="at">simplify =</span> <span class="st">"none"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -863,7 +866,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <li><p>Una función puede generar una advertencia inesperada. La forma más fácil de rastrear las advertencias es convertirlas en errores con <code>options(warn = 2)</code> y usar la pila de llamadas, como <code>doWithOneRestart()</code>, <code>withOneRestart()</code>, herramientas de depuración regulares. Cuando haga esto, verá algunas llamadas adicionales <code>withRestarts()</code> y <code>.signalSimpleWarning()</code>. Ignórelos: son funciones internas que se utilizan para convertir las advertencias en errores.</p></li>
 <li><p>Una función puede generar un mensaje inesperado. Puedes usar <code>rlang::with_abort()</code> para convertir estos mensajes en errores:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>() <span class="fu">g</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>() <span class="fu">g</span>()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>() <span class="fu">message</span>(<span class="st">"Hi!"</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Hi!</span></span>
@@ -871,7 +874,7 @@ Figura&nbsp;22.1: RStudio debugging toolbar
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>rlang<span class="sc">::</span><span class="fu">with_abort</span>(<span class="fu">f</span>(), <span class="st">"message"</span>)</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: 'with_abort' is not an exported object from 'namespace:rlang'</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>rlang<span class="sc">::</span><span class="fu">last_trace</span>()</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Can't show last error because no error was recorded yet</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Can't show last error because no error was recorded yet</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p>Es posible que una función nunca regrese. Esto es particularmente difícil de depurar automáticamente, pero a veces terminar la función y mirar el <code>traceback()</code> es informativo. De lo contrario, utilice la depuración de impresión, como en la <a href="#sec-print-debugging" class="quarto-xref"><span>Sección 22.5.2</span></a>.</p></li>
 <li><p>El peor de los escenarios es que su código podría fallar por completo en R, dejándolo sin forma de depurar su código de manera interactiva. Esto indica un error en el código compilado (C o C++).</p>
@@ -897,15 +900,15 @@ Balamuta, James. 2018a. <em>errorist: Automatically Search Errors or Warnings</e
   // Chapter name
   const currentChapterFile = window.location.pathname.split('/').pop().replace('.html', '');
 
-  //Deffining urls
+  //Defining urls
   const originalURL = "https://github.com/hadley/adv-r";
-  const translationURL = "https://github.com/davidrsch/adv-res";
+  const translationURL = "https://github.com/davidrsch/advr-es";
 
-  //Deffining texts
+  //Defining texts
   const edit_text = "Editar esta página";
   const issue_text = "Informar de un problema"
 
-  //Deffining git_i
+  //Defining git_i
   const git_i = '<div><i class="bi bi-github"></i></div>';
 
   // Adding TOC if not exist
@@ -963,6 +966,7 @@ Balamuta, James. 2018a. <em>errorist: Automatically Search Errors or Warnings</e
 
 </script>
 
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1014,13 +1018,14 @@ Balamuta, James. 2018a. <em>errorist: Automatically Search Errors or Warnings</e
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
