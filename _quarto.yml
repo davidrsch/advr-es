@@ -26,7 +26,7 @@ book:
           - text: Original
             url: https://github.com/hadley/adv-r
           - text: Traducción
-            url: https://github.com/davidrsch/adv-res
+            url: https://github.com/davidrsch/advr-es
   page-navigation: true
   chapters:
     - index.qmd
