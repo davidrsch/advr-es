@@ -5,6 +5,7 @@ project:
 book:
   title: "R Avanzado"
   reader-mode: true
+  site-url: https://davidrsch.github.io/advr-es/
 
   page-footer:
     left: |
