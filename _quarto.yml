@@ -5,6 +5,12 @@ project:
 book:
   title: "R Avanzado"
   reader-mode: true
+  site-url: https://davidrsch.github.io/advr-es/
+  description: |
+    Traducción al español de "Advanced R" de Hadley Wickham. Profundiza en el
+    lenguaje R, dominando programación funcional, orientada a objetos,
+    metaprogramación, rendimiento y más.
+  open-graph: true
 
   page-footer:
     left: |
@@ -75,13 +81,13 @@ book:
 
 bibliography: book.bib
 
+lang: es
+
 format:
   html:
     include-after-body: [ddrsch_script.html]
     include-in-header: [ddrsch_script_header.html]
     css: adv-r.css
-    lang:
-      es
 
   pdf:
     documentclass: scrbook
