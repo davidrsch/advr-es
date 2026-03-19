@@ -702,8 +702,8 @@ Figura&nbsp;23.4: Perfilar un bucle que modifica una variable existente revela q
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   expression      min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 sqrt(x)    389.99ns 431.09ns  2107334.      848B     211.</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 x^0.5        1.99µs   2.05µs   473921.      848B       0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 sqrt(x)       400ns  441.1ns  2077038.      848B     208.</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 x^0.5        1.99µs   2.08µs   469564.      848B       0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>De forma predeterminada, <code>bench::mark()</code> ejecuta cada expresión al menos una vez (<code>min_iterations = 1</code>) y, como máximo, las veces necesarias para tardar 0,5 s (<code>min_time = 0,5</code>). Comprueba que cada ejecución devuelve el mismo valor, que suele ser lo que desea microbenchmarking; si desea comparar la velocidad de las expresiones que devuelven valores diferentes, configure <code>check = FALSE</code>.</p>
 <section id="resultados-de-benchmark" class="level3" data-number="23.3.1">
@@ -735,19 +735,19 @@ Figura&nbsp;23.4: Perfilar un bucle que modifica una variable existente revela q
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 4</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   expression      min   median `itr/sec`</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 sqrt(x)    389.99ns 431.09ns  2107334.</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 x^0.5        1.99µs   2.05µs   473921.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 sqrt(x)       400ns  441.1ns  2077038.</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 x^0.5        1.99µs   2.08µs   469564.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="interpretación-de-resultados" class="level3" data-number="23.3.2">
 <h3 data-number="23.3.2" class="anchored" data-anchor-id="interpretación-de-resultados"><span class="header-section-number">23.3.2</span> Interpretación de resultados</h3>
-<p>Al igual que con todos los micropuntos de referencia, preste mucha atención a las unidades: aquí, cada cálculo toma alrededor de 390 ns, 390 mil millonésimas de segundo. Para ayudar a calibrar el impacto de un micropunto de referencia en el tiempo de ejecución, es útil pensar cuántas veces debe ejecutarse una función antes de que tarde un segundo. Si un microbenchmark toma:</p>
+<p>Al igual que con todos los micropuntos de referencia, preste mucha atención a las unidades: aquí, cada cálculo toma alrededor de 400 ns, 400 mil millonésimas de segundo. Para ayudar a calibrar el impacto de un micropunto de referencia en el tiempo de ejecución, es útil pensar cuántas veces debe ejecutarse una función antes de que tarde un segundo. Si un microbenchmark toma:</p>
 <ul>
 <li>1 ms, entonces mil llamadas toman un segundo.</li>
 <li>1 µs, luego un millón de llamadas toman un segundo.</li>
 <li>1 ns, luego mil millones de llamadas toman un segundo.</li>
 </ul>
-<p>La función <code>sqrt()</code> toma aproximadamente 390 ns, o 0.39 µs, para calcular las raíces cuadradas de 100 números. Eso significa que si repitió la operación un millón de veces, tomaría 0.39 s y, por lo tanto, es poco probable que cambiar la forma en que calcula la raíz cuadrada afecte significativamente el código real. Esta es la razón por la que debe tener cuidado al generalizar los resultados de microbenchmarking.</p>
+<p>La función <code>sqrt()</code> toma aproximadamente 400 ns, o 0.4 µs, para calcular las raíces cuadradas de 100 números. Eso significa que si repitió la operación un millón de veces, tomaría 0.4 s y, por lo tanto, es poco probable que cambiar la forma en que calcula la raíz cuadrada afecte significativamente el código real. Esta es la razón por la que debe tener cuidado al generalizar los resultados de microbenchmarking.</p>
 </section>
 <section id="ejercicios-1" class="level3" data-number="23.3.3">
 <h3 data-number="23.3.3" class="anchored" data-anchor-id="ejercicios-1"><span class="header-section-number">23.3.3</span> Ejercicios</h3>

@@ -575,7 +575,7 @@ div.csl-indent {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add funciona como una función R normal</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>add</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; function (x, y, z) </span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; .Call(&lt;pointer: 0x7fa70b205510&gt;, x, y, z)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; .Call(&lt;pointer: 0x7f98ccd51510&gt;, x, y, z)</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 6</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -684,9 +684,9 @@ div.csl-indent {
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   expression      min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 sum(x)       2.06µs    2.1µs   463894.        0B      0  </span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 sumC(x)      1.68µs    1.8µs   517562.        0B     51.8</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 sumR(x)     23.63µs     24µs    41024.      22KB      0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 sum(x)       2.06µs    2.1µs   464877.        0B      0  </span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 sumC(x)      1.67µs   1.79µs   520426.        0B     52.0</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 sumR(x)     23.64µs  23.98µs    40941.      22KB      0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="entrada-vectorial-salida-vectorial" class="level3" data-number="25.2.4">
@@ -725,8 +725,8 @@ div.csl-indent {
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   expression          min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;bch:expr&gt;     &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 pdistR(0.5, y)   4.49ms   4.64ms      211.    7.63MB     110.</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 pdistC(0.5, y)   3.89ms   3.95ms      252.    7.63MB     126.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 pdistR(0.5, y)    4.5ms   4.61ms      214.    7.63MB     111.</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 pdistC(0.5, y)   3.85ms   3.96ms      252.    7.63MB     126.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>En mi computadora, toma alrededor de 5 ms con un vector <code>y</code> de 1 millón de elementos. La función de C++ es unas 2,5 veces más rápida, ~2 ms, pero suponiendo que le haya llevado 10 minutos escribir la función de C++, necesitará ejecutarla ~200.000 veces para que valga la pena reescribirla. La razón por la que la función de C++ es más rápida es sutil y se relaciona con la administración de la memoria. La versión R necesita crear un vector intermedio de la misma longitud que y (<code>x - ys</code>), y asignar memoria es una operación costosa. La función de C++ evita esta sobrecarga porque usa un escalar intermedio.</p>
 </section>
@@ -1294,8 +1294,8 @@ div.csl-indent {
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   expression              min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;bch:expr&gt;         &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 gibbs_r(100, 10)     2.33ms    2.4ms      412.   107.5KB     15.2</span></span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 gibbs_cpp(100, 10) 228.56µs  246.1µs     4003.    1.61KB     14.6</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 gibbs_r(100, 10)     2.44ms   2.48ms      399.   107.5KB     12.9</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 gibbs_cpp(100, 10) 228.55µs 246.67µs     3989.    1.61KB     16.8</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="r-vectorización-frente-a-vectorización-c" class="level3" data-number="25.6.2">
@@ -1382,9 +1382,9 @@ div.csl-indent {
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   expression      min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 vacc1         1.5ms   1.54ms      640.    7.86KB     19.4</span></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 vacc2        40.9µs  42.79µs    21867.  148.56KB     45.3</span></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 vacc3        11.4µs  11.75µs    83564.   14.48KB     16.7</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 vacc1        1.49ms   1.54ms      641.    7.86KB     19.6</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 vacc2       41.62µs  43.52µs    21441.  148.57KB     44.0</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 vacc3       11.42µs  11.81µs    83120.   14.48KB     16.6</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>No es sorprendente que nuestro enfoque original con bucles sea muy lento. La vectorización en R proporciona una gran aceleración, y podemos obtener aún más rendimiento (unas diez veces) con el ciclo de C++. Me sorprendió un poco que C++ fuera mucho más rápido, pero se debe a que la versión R tiene que crear 11 vectores para almacenar resultados intermedios, mientras que el código C++ solo necesita crear 1.</p>
 </section>
